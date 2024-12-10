@@ -14,3 +14,15 @@ Text Domain:	 mota-child
     Add your custom styles here
 */
 
+.site-header {
+    background-color: white;
+}
+
+[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {
+   fill: black;
+}
+
+#ast-scroll-top {
+    background-color: none;
+    font-size: 0px;
+}
