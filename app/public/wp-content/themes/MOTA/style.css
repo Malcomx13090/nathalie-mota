@@ -1,0 +1,88 @@
+/*
+Theme Name: MOTA
+Theme URI: https://example.com/
+Author: Malcomx13090
+Author URI: https://yourwebsite.com/
+Description: A blank starter WordPress theme.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: blank-theme
+*/
+
+
+/*
+    Add your custom styles here
+*/
+@font-face {
+    font-family: 'Space Mono-Regular';
+    src: url('fonts/SpaceMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono-Italic';
+    src: url('fonts/SpaceMono-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Space Mono-Bold';
+    src: url('fonts/SpaceMono-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono-BoldItalic';
+    src: url('fonts/SpaceMono-BoldItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+.logo {
+    width: 216px;
+height: 14px;
+
+padding-left: 146px;
+}
+
+#header-pic {
+    height: 1440px; 
+    width: auto;
+}
+
+
+
+.site-header {
+    background-color: white;
+    
+}
+
+[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {
+   fill: black;
+}
+
+#ast-scroll-top {
+    background-color: none;
+    font-size: 0px;
+}
+
+.header-container {
+    height: 80px; 
+  display: flex;
+}
+.text-menu {
+    font-family: 'Space Mono-BoldItalic';
+}
+.menu-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu {
+    
+}
