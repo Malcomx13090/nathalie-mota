@@ -1,0 +1,115 @@
+/*
+Theme Name: MOTA
+Theme URI: https://example.com/
+Author: Malcomx13090
+Author URI: https://yourwebsite.com/
+Description: A blank starter WordPress theme.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: blank-theme
+*/
+
+
+/*
+    Add your custom styles here
+*/
+@font-face {
+    font-family: 'Space Mono-Regular';
+    src: url('fonts/SpaceMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono-Italic';
+    src: url('fonts/SpaceMono-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Space Mono-Bold';
+    src: url('fonts/SpaceMono-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Mono-BoldItalic';
+    src: url('fonts/SpaceMono-BoldItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+.logo {
+    width: 216px;
+padding-left: 146px;
+}
+
+#header-pic {
+    width: auto;
+   
+}
+
+
+
+.site-header {
+    background-color: white;
+    
+}
+
+[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {
+   fill: black;
+}
+
+#ast-scroll-top {
+    background-color: none;
+    font-size: 0px;
+}
+
+.header-container {
+    align-items: center;
+  display: flex;
+  justify-content: space-between ;
+}
+.text-menu {
+    font-family: 'Space Mono-Bold';
+    text-decoration: none;
+    color: black;
+}
+.menu-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-right: 146px;
+    
+}
+
+.nav-menu {
+    
+}
+
+.modale {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Style pour le fond sombre derrière la modale */
+.modale-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
