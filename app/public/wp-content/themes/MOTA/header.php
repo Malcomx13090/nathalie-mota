@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style.css">
     <title>NATHALIE MOTA</title>
+    <?php wp_head();?>
 </head>
 <body>
 
@@ -15,13 +16,12 @@
 
 <a href="index.php"><img class="logo" src="http://nathalie-mota.local/wp-content/uploads/2024/12/Logo1.png" alt="Logo" id="logo"></a>
 <nav class="nav-menu">        
-    <div>
-        <ul class="menu-list">
-            <li class="text-menu"><a href="page1.html">ACCUEIL</a></li>
-            <li class="text-menu"><a href="page2.html">À PROPOS</a></li>
-            <li class="text-menu"><a href="page3.html">CONTACT</a></li>
-        </ul>
-    </div>    
+<?php
+wp_nav_menu(array(
+    'theme_location' => 'primary', // Doit correspondre à ce que vous avez déclaré dans `functions.php`.
+    'menu_class' => 'menu-principal', // Une classe CSS personnalisée pour styliser le menu.
+));
+?>
 </nav>
 
 </header>
