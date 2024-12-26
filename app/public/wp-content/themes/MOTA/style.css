@@ -43,22 +43,63 @@ Text Domain: blank-theme
     font-style: italic;
 }
 
+/*
+.body {
+    max-width: 1440px;
+  margin: 0 auto; /* Center the body within the viewport/
+  padding: 0;
+  } */
+
+  html, body {
+    max-width: 1440px;
+    margin: 0 auto; /* Center the page */
+    padding: 0 auto; /* Center the page */
+}
+
+
 .logo {
     width: 216px;
 height: 14px;
+margin-left: 90px;
 
 
 }
 
 #header-pic {
-    height: 1440px; 
+   
     width: auto;
-    height: 962px;
+    height: auto;
 }
 
 .menu-principal {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 20px; /* Add spacing between menu items */
+    margin: 0;
+    padding: 0;
+    margin-right: 90px;
+    text-decoration: none;
     
 }
+
+.menu-principal li {
+    display: inline-block;
+}
+
+.menu-deco {
+   
+font-family: 'Space Mono-Regular';
+font-size: 16px;
+font-weight: 400;
+line-height: 23.7px;
+text-align: left;
+text-decoration: none !important;
+color: black !important;
+
+}
+
+
 
 .site-header {
     background-color: white;
@@ -75,22 +116,30 @@ height: 14px;
 }
 
 .header-container {
- width: auto;
-  height: 80px; 
-  display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px; /* Add padding for spacing */
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
+
 .text-menu {
-    font-family: 'Space Mono-BoldItalic';
+    font-family: 'Space Mono-Bold Italic';
 }
 .menu-list {
     list-style: none;
-    display: flex;
-   
-  
-    
+       
 }
 
 .nav-menu {
+   
+}
+
+.menu-primary-container {
     
 }
 
