@@ -47,15 +47,18 @@ Text Domain: blank-theme
     width: 216px;
 height: 14px;
 
-padding-left: 146px;
+
 }
 
 #header-pic {
     height: 1440px; 
     width: auto;
+    height: 962px;
 }
 
-
+.menu-principal {
+    
+}
 
 .site-header {
     background-color: white;
@@ -72,7 +75,8 @@ padding-left: 146px;
 }
 
 .header-container {
-    height: 80px; 
+ width: auto;
+  height: 80px; 
   display: flex;
 }
 .text-menu {
@@ -81,8 +85,34 @@ padding-left: 146px;
 .menu-list {
     list-style: none;
     display: flex;
+   
+  
+    
 }
 
 .nav-menu {
     
+}
+
+.modale {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Style pour le fond sombre derrière la modale */
+.modale-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
 }

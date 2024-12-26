@@ -4,3 +4,5 @@ get_header();
 echo '<img id="header-pic" src="http://nathalie-mota.local/wp-content/uploads/2024/12/nathalie-11-scaled.jpeg" alt="Description of image">';
 get_footer();
 ?>
+
+
