@@ -68,3 +68,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+menuItem.addEventListener('click', function(event) {
+    event.preventDefault();
+    var modale = document.getElementById('maModale');
+    console.log('Menu item clicked, modale:', modale); // Vérifiez si la modale est bien ciblée
+    if (modale) {
+        modale.style.display = 'block';
+    }
+});
+
+fermerBouton.addEventListener('click', function() {
+    var modale = document.getElementById('maModale');
+    console.log('Close button clicked, modale:', modale); // Vérifiez si l'élément est bien trouvé
+    if (modale) {
+        modale.style.display = 'none';
+    }
+});
+
