@@ -33,3 +33,84 @@ add_action('wp_enqueue_scripts', 'ajouter_mon_script');
 
 
 add_theme_support('post-thumbnails');
+
+
+function load_jquery_in_wp() {
+    if (!wp_script_is('jquery', 'enqueued')) {
+        wp_enqueue_script('jquery');
+    }
+}
+add_action('wp_enqueue_scripts', 'load_jquery_in_wp');
+
+
+function check_jquery_in_wp() {
+    ?>
+    <script>
+        if (typeof jQuery !== "undefined") {
+            console.log("jQuery est chargé !");
+        } else {
+            console.log("jQuery n'est pas chargé.");
+        }
+    </script>
+    <?php
+}
+add_action('wp_footer', 'check_jquery_in_wp');
+
+
+
+// Action pour charger plus de photos via AJAX
+function load_more_photos() {
+    $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $categorie = isset($_POST['categorie']) ? sanitize_text_field($_POST['categorie']) : '';
+    $format = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
+
+    $args = array(
+        'post_type'      => 'photo',
+        'posts_per_page' => 8,
+        'paged'          => $paged + 1,
+        'post_status'    => 'publish',
+    );
+
+    if ($categorie) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'categorie',
+            'field'    => 'slug',
+            'terms'    => $categorie,
+        );
+    }
+
+    if ($format) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'format',
+            'field'    => 'slug',
+            'terms'    => $format,
+        );
+    }
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            ?>
+            <div class="photo-item">
+                <?php the_post_thumbnail('medium'); ?>
+            </div>
+            <?php
+        endwhile;
+        wp_reset_postdata();
+    endif;
+
+    wp_die();
+}
+add_action('wp_ajax_load_more_photos', 'load_more_photos');
+add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
+
+function enqueue_photo_scripts() {
+    wp_enqueue_script('photos', get_template_directory_uri() . '/scripts/photos.js', array('jquery'), null, true);
+
+    // Transmettre des données à JavaScript
+    wp_localize_script('photos', 'photoAjax', array(
+        'url' => admin_url('admin-ajax.php'),
+    ));
+}
+add_action('wp_enqueue_scripts', 'enqueue_photo_scripts');

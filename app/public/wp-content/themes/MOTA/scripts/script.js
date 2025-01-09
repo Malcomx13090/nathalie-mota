@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+var menuItem = document.getElementById('menu-item-28');
 menuItem.addEventListener('click', function(event) {
     event.preventDefault();
     var modale = document.getElementById('maModale');
@@ -78,6 +79,7 @@ menuItem.addEventListener('click', function(event) {
     }
 });
 
+var fermerBouton = document.getElementById('fermerModale');
 fermerBouton.addEventListener('click', function() {
     var modale = document.getElementById('maModale');
     console.log('Close button clicked, modale:', modale); // Vérifiez si l'élément est bien trouvé

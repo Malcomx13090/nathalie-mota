@@ -165,3 +165,45 @@ color: black !important;
     z-index: 999;
     display: none;
 }
+
+#photo-filters {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#photo-filters select {
+    padding: 5px;
+}
+
+#photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.photo-item {
+    flex: 1 1 calc(25% - 10px);
+    max-width: calc(25% - 10px);
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#load-more-photos {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#load-more-photos:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
