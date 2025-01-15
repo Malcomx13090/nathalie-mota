@@ -58,7 +58,9 @@ echo '<img id="hero-header">';
     </div>
 
     <!-- Bouton Charger Plus -->
+     <div id="button-container">
     <button id="load-more-photos" data-page="1">Charger plus</button>
+    </div>
 </main>
 
 <?php
