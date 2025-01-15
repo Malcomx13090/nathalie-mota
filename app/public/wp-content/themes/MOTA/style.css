@@ -356,6 +356,41 @@ color: black !important;
 }
 
 .container-deco {
-    
-    
+    width: 100%; /* Ensures the container takes up the full width */
+    border-top: 1px solid #333; /* Adds the top border */
+    box-sizing: border-box; /* Ensures the border is included within the width calculation */
+}
+
+@media (max-width: 768px) {
+    .container-deco {
+        width: 100%; /* Ensures the container takes up the full width on mobile */
+        border-top: 1px solid #333; /* Keeps the border on mobile */
+    }
+}
+
+
+#button-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#load-more-photos {
+    font-family: 'Space Mono-Regular';
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 23.7px;
+    text-align: center;
+    text-decoration: none !important;
+    color: black !important;
+    background-color: #D8D8D8 ;
+    width: 272px;
+    height: 50px;
+}
+
+#photo-filters {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
 }

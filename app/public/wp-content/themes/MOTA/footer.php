@@ -3,10 +3,10 @@ wp_footer();
 ?>
 
 <footer>
-    <!-- Autres contenus du pied de page 
-    <footer style="background-color: #e0e0e0; text-align: center; padding: 10px 0; font-family: Arial, sans-serif; font-size: 14px; color: #333; border-top: 1px solid #ccc;">-->
-    <div style="display: flex; justify-content: center; gap: 20px;">
-    <nav class="nav-menu">   
+    <!-- Autres contenus du pied de page -->
+    
+    <div style="display: flex; justify-content: center; gap: 20px; margin: top 30px;">
+    
     <?php
 wp_nav_menu(array(
     'theme_location' => 'footer', // Doit correspondre à ce que vous avez déclaré dans `functions.php`.
