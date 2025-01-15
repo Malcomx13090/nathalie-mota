@@ -13,14 +13,25 @@
 
 <header class="header-container">
 
-<a href="index.php"><img class="logo" src="http://nathalie-mota.local/wp-content/uploads/2024/12/Logo1.png" alt="Logo" id="logo"></a>
-<nav class="nav-menu">        
-<?php
-wp_nav_menu(array(
-    'theme_location' => 'primary', // Doit correspondre à ce que vous avez déclaré dans `functions.php`.
-    'menu_class' => 'menu-principal', // Une classe CSS personnalisée pour styliser le menu.
-));
-?>
+<a href="http://nathalie-mota.local/"><img class="logo" src="http://nathalie-mota.local/wp-content/uploads/2024/12/Logo1.png" alt="Logo" id="logo"></a>
+ 
+<div class="menu-wrapper">
+    <!-- Toggle Button -->
+    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+        <span class="burger-icon">☰</span>
+    </button>
+
+    <!-- WordPress Navigation -->
+    <?php 
+    wp_nav_menu(array(
+        'theme_location' => 'primary', // Ensure this is registered in functions.php
+        'menu_class' => 'menu-principal', // Custom class for <ul>
+        'container_class' => 'menu-container', // Class for the wrapping div
+        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>', // Standard wrap
+    ));
+    ?>
+</div>
 </nav>
+
 
 </header>

@@ -43,106 +43,237 @@ Text Domain: blank-theme
     font-style: italic;
 }
 
-/*
-.body {
-    max-width: 1440px;
-  margin: 0 auto; /* Center the body within the viewport/
-  padding: 0;
-  } */
+#hero-header {
+    width: 100%; /* Make sure the container takes up the full width */
+    height: 962px; /* Set the height relative to the viewport height (adjust as needed) */
+    background-image: url('http://nathalie-mota.local/wp-content/uploads/2025/01/Header-2-2.png'); /* Replace with the correct path to your image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center center; /* Center the image to keep important parts visible */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    display: flex; /* Allows us to center content if needed */
+    justify-content: center;
+    align-items: center; /* Optional: If you want to center content like text or buttons */
+}
 
-  html, body {
-   /* max-width: 1440px;*/
-    margin: 0 auto; /* Center the page */
-    padding: 0 auto; /* Center the page */
+/* Adjust for mobile view */
+@media (max-width: 768px) {
+    #hero-header {
+        width: 100%;
+        height: 40vh; /* Adjust height on smaller screens */
+    }
 }
 
 
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-container {
+    position: relative; /* Keeps the menu aligned with the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: white;
+    z-index: 10;
+    padding: 10px 20px; /* Space around header content */
+    border-bottom: 1px solid #ddd;
+}
+
+/* Logo */
 .logo {
     width: 216px;
-height: 14px;
-margin-left: 90px;
-
-
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 10px; /* Adjust spacing */
 }
 
-#header-pic {
-   
-    width: 100%;
-    height: auto;
+/* Menu Container */
+.menu-container {
+    display: flex; /* Always visible on desktop */
+    position: absolute;
+    top: 100%; /* Align menu below header */
+    left: 0;
+    
+    background-color: #fff;
+    z-index: 1000;
+    
+    transition: max-height 0.3s ease-in-out; /* Smooth open/close effect */
+    max-height: none; /* Remove max-height constraint on desktop */
+    overflow: visible; /* Ensure the menu stays visible */
+}
+
+.menu-container.active {
+    /* Optional: Additional styles for active state, e.g., mobile toggle */
 }
 
 .menu-principal {
-    display: flex;
-    justify-content: flex-end;
     list-style: none;
-    gap: 20px; /* Add spacing between menu items */
     margin: 0;
     padding: 0;
-    margin-right: 90px;
-    text-decoration: none;
-    
+    display: flex; /* Default horizontal layout for desktop */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: flex-end; /* Align menu to the right */
 }
 
 .menu-principal li {
-    display: inline-block;
+    padding: 10px 20px;
 }
 
-.menu-deco {
-   
-font-family: 'Space Mono-Regular';
+.menu-principal li a {
+    font-family: 'Space Mono-Regular';
 font-size: 16px;
 font-weight: 400;
 line-height: 23.7px;
 text-align: left;
 text-decoration: none !important;
 color: black !important;
-
 }
 
-
-
-.site-header {
-    background-color: white;
-    
+/* Toggle Button */
+.menu-toggle {
+    display: none; /* Hide on desktop */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
 }
 
-[data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {
-   fill: black;
+.burger-icon {
+    font-size: 24px;
+    color: #333;
 }
 
-#ast-scroll-top {
-    background-color: none;
-    font-size: 0px;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Show on mobile */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-container {
+        position: absolute;
+        top: 100%; /* Align below header on mobile */
+        left: 0;
+        width: 100%;
+        display: none; /* Hidden by default */
+        flex-direction: column; /* Stack links vertically */
+        align-items: flex-start;
+    }
+
+    .menu-container.active {
+        display: flex; /* Show when active */
+        max-height: 500px; /* Show menu with height constraint */
+        overflow: visible;
+    }
+
+    .menu-principal {
+        flex-direction: column;
+        align-items: flex-start; /* Align links to the left */
+    }
 }
 
-.header-container {
+@media (min-width: 769px) {
+    .menu-container {
+        display: flex; /* Always visible on desktop */
+        position: static; /* Inline with the header */
+        flex-direction: row;
+    }
+
+    .menu-toggle {
+        display: none; /* Hidden on desktop */
+    }
+}
+
+/* Responsive Images */
+.photo-item {
+    flex: 1 1 calc(50% - 10px); /* Two images per row */
+    max-width: calc(50% - 10px);
+    margin-bottom: 10px; /* Add spacing between rows */
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+#photo-gallery {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /*max-width: 1440px;*/
-    margin: 0 auto;
-    padding: 0 20px; /* Add padding for spacing */
-    margin-top: 20px;
-    margin-bottom: 20px;
+    flex-direction: column; /* Stack items vertically by default */
+    gap: 10px;
+    margin: 0 auto; /* Center the gallery */
+    justify-content: center; /* Center items within the gallery container */
+    align-items: center; /* Ensure the images are centered horizontally */
+}
+
+/* Style for each photo item */
+.photo-item {
+    width: 100%; /* Ensure the image takes up full width on mobile */
+    max-width: 564px; /* Limit the width of each image (use the image's resolution as a max width) */
+    margin-bottom: 10px; /* Space between each image */
+    display: flex;
+    justify-content: center; /* Center the image inside the container */
+}
+
+/* Style for images */
+.photo-item img {
+    max-width: 100%; /* Ensure the image doesn't overflow its container */
+    height: auto; /* Maintain the aspect ratio of the image */
+}
+
+/* For larger screens, set max-width for images */
+@media (min-width: 769px) {
+    #photo-gallery {
+        flex-direction: column; /* Keep stacking images vertically on desktop */
+        align-items: center; /* Keep the gallery centered */
+    }
+
+    .photo-item {
+        width: 100%; /* Ensure the images still take up the full width of the container */
+        max-width: 564px; /* Limit the width of the images to their natural resolution */
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    #photo-gallery {
+        flex-direction: column; /* Maintain the vertical stacking */
+        align-items: center; /* Center the items */
+    }
+
+    .photo-item {
+        max-width: 317px;
+        width: 100%; /* Make each image take full width of the container on smaller screens */
+        height: auto; /* Allow the image height to scale naturally */
+    }
 }
 
 
-.text-menu {
-    font-family: 'Space Mono-Bold Italic';
-}
-.menu-list {
-    list-style: none;
-       
+@media (min-width: 769px) {
+    #photo-gallery {
+        flex-direction: row; /* Arrange items in rows on larger screens */
+        flex-wrap: wrap; /* Allow wrapping of images */
+        justify-content: center; /* Center the images in the gallery */
+        align-items: flex-start; /* Align items to the top */
+        max-width: 1300px;
+    }
+
+    .photo-item {
+        width: 48%; /* Show two items per row */
+        margin: 10px; /* Space between items */
+    }
 }
 
-.nav-menu {
-   
-}
 
-.menu-primary-container {
-    
-}
 
+/* Modal Styles */
 .modale {
     position: fixed;
     left: 50%;
@@ -154,7 +285,6 @@ color: black !important;
     z-index: 1000;
 }
 
-/* Style pour le fond sombre derrière la modale */
 .modale-overlay {
     position: fixed;
     top: 0;
@@ -166,6 +296,7 @@ color: black !important;
     display: none;
 }
 
+/* Filters and Load More Button */
 #photo-filters {
     margin-bottom: 20px;
     display: flex;
@@ -174,24 +305,6 @@ color: black !important;
 
 #photo-filters select {
     padding: 5px;
-}
-
-#photo-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.photo-item {
-    flex: 1 1 calc(25% - 10px);
-    max-width: calc(25% - 10px);
-}
-
-.photo-item img {
-    width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
 #load-more-photos {
@@ -206,4 +319,43 @@ color: black !important;
 #load-more-photos:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+}
+
+
+.menu-deco {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Default horizontal layout for desktop */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Align menu to the right */
+}
+
+/* Style for each list item */
+.menu-deco li {
+    padding: 10px 20px;
+}
+
+/* Link styles */
+.menu-deco li a {
+    font-family: 'Space Mono-Regular';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23.7px;
+    text-align: center;
+    text-decoration: none !important;
+    color: black !important;
+}
+
+/* Responsive: Stack menu items in a column on mobile */
+@media (max-width: 768px) {
+    .menu-deco {
+        flex-direction: column; /* Switch to column layout on mobile */
+        align-items: center; /* Align items to the left */
+    }
+}
+
+.container-deco {
+    
+    
 }

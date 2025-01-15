@@ -86,3 +86,15 @@ fermerBouton.addEventListener('click', function() {
     }
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('.menu-toggle');
+    const menuContainer = document.querySelector('.menu-container');
+
+    toggleButton.addEventListener('click', function() {
+        const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+        toggleButton.setAttribute('aria-expanded', !isExpanded);
+        menuContainer.classList.toggle('active'); // Toggle menu visibility
+    });
+});
+

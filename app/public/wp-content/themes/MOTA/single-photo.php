@@ -1,4 +1,4 @@
-<?php
+<?php 
 get_header();
 
 while (have_posts()) : the_post();
@@ -6,7 +6,10 @@ while (have_posts()) : the_post();
     <h1><?php the_title(); ?></h1>
     <?php if (has_post_thumbnail()) : ?>
         <div>
-            <?php the_post_thumbnail('large'); ?>
+            <!-- Make the thumbnail clickable -->
+            <a href="<?php the_permalink(); ?>">
+            <?php the_post_thumbnail('medium', array('class' => 'responsive-img')); ?>
+            </a>
         </div>
     <?php endif; ?>
 

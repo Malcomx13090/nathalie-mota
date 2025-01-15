@@ -2,7 +2,9 @@
 // Basic template for displaying content
 get_header();
 
-echo '<img id="header-pic" src="http://nathalie-mota.local/wp-content/uploads/2024/12/nathalie-11.jpg" alt="Description of image">';
+
+echo '<img id="hero-header">';
+
 ?>
 
 <main id="main-content">
@@ -41,9 +43,11 @@ echo '<img id="header-pic" src="http://nathalie-mota.local/wp-content/uploads/20
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
                 ?>
-                <div class="photo-item">
-                    <?php the_post_thumbnail('medium'); ?>
-                </div>
+                 <div class="photo-item">
+                <a href="<?php the_permalink(); ?>">
+                <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
+                </a>
+            </div>
                 <?php
             endwhile;
             wp_reset_postdata();

@@ -87,3 +87,10 @@ fermerBouton.addEventListener('click', function() {
         modale.style.display = 'none';
     }
 });
+
+
+
+
+
+
+
