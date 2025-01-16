@@ -423,12 +423,6 @@ color: black ;
     cursor: pointer;
 }
 
-#filter-categorie:hover,
-#filter-format:hover,
-#filter-date:hover {
-    color: white; /* Change text color on hover */
-    background-color: red; /* Change background color to red */
-}
 
 /* Desktop-specific layout */
 @media (min-width: 768px) {
@@ -533,4 +527,121 @@ color: black ;
     width: 272px;
     height: 50px;
 }
+
+/* Modal Overlay */
+/* Modal Overlay */
+.modale-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    z-index: 999; /* Below the modal content */
+    display: none; /* Initially hidden */
+}
+
+/* Modal Container */
+.modale {
+    border: 2px solid #000000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center modal */
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000; /* Above the overlay */
+    display: none; /* Initially hidden */
+    padding: 0;
+}
+
+/* Modal Header */
+.modale-header {
+    width: 100%;
+    height: 107px; /* Height of the header */
+    background-image: url('http://nathalie-mota.local/wp-content/uploads/2025/01/Contact-header.png');
+    background-repeat: repeat-x; /* Repeat the image horizontally */
+    background-position: 0% top; /* Move the background image 20% to the left */
+    background-size: auto 100%; /* Stretch the background image horizontally */
+    margin: 0;
+    overflow: hidden; }
+
+
+
+
+/* Modal Content */
+
+
+/* Modal Title */
+.modale-title {
+    width: 1000px;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* Form Styles */
+.modale-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-self: center;
+}
+
+.modale-form label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.modale-form input, 
+.modale-form textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.modale-form .submit-button {
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.modale-form .submit-button:hover {
+    background-color: #bbb;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#nodis {
+    opacity: 0.0;
+}
+
+/* Modal Content */
+.modale-content {
+    
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    
+}
+
+
 

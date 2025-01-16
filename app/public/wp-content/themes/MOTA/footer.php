@@ -17,11 +17,35 @@ wp_nav_menu(array(
     </div>
 
   <!-- La modale cachée par défaut -->
-    <div class="modale" id="maModale" style="display: none;">
-        <!-- Contenu de la modale -->
-        <p>Contenu de la modale</p>
-        <button id="fermerModale">Fermer</button>
+  <!-- Modal Container -->
+  <div class="modale" id="maModale" style="display: none;">
+    <div class="modale-header">
+        <p id='nodis'>pppp</p>
     </div>
+    
+    <form class="modale-form">
+        <label for="nom">NOM</label>
+        <input type="text" id="nom" name="nom" required>
+        
+        <label for="email">E-MAIL</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="photo-ref">RÉF. PHOTO</label>
+        <input type="text" id="photo-ref" name="photo-ref">
+        
+        <label for="message">MESSAGE</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        
+        <button type="submit" class="submit-button">Envoyer</button>
+    </form>
+</div>
+
+    
+</div>
+
+<!-- Modal Overlay -->
+<div class="modale-overlay" style="display: none;"></div>
+
 </footer>
 </body>
 </html>

@@ -81,5 +81,3 @@ echo '<div id="hero-header">
 get_footer();
 
 ?>
-
-
