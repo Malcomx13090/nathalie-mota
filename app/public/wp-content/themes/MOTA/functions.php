@@ -66,12 +66,16 @@ function load_more_photos() {
     $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $categorie = isset($_POST['categorie']) ? sanitize_text_field($_POST['categorie']) : '';
     $format = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
+    $sort_order = isset($_POST['sort_order']) ? sanitize_text_field($_POST['sort_order']) : 'DESC';
+    $date_order = isset($_POST['date_order']) ? sanitize_text_field($_POST['date_order']) : 'DESC'; // New date order filter
 
     $args = array(
         'post_type'      => 'photo',
         'posts_per_page' => 8,
         'paged'          => $paged,
         'post_status'    => 'publish',
+        'orderby'        => 'date', // Sort by date
+        'order'          => $date_order, // Use the date filter
     );
 
     if ($categorie) {
@@ -108,9 +112,16 @@ function load_more_photos() {
     endif;
 
     wp_die();
+    else :
+        echo ''; // Return an empty string if no posts are found
+    endif;
+
+    wp_die(); // End the AJAX response
 }
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
+
+
 
 
 function enqueue_photo_scripts() {

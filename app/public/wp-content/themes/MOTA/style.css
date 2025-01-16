@@ -44,16 +44,50 @@ Text Domain: blank-theme
 }
 
 #hero-header {
-    width: 100%; /* Make sure the container takes up the full width */
-    height: 962px; /* Set the height relative to the viewport height (adjust as needed) */
-    background-image: url('http://nathalie-mota.local/wp-content/uploads/2025/01/Header-2-2.png'); /* Replace with the correct path to your image */
-    background-size: cover; /* Ensure the image covers the entire container */
-    background-position: center center; /* Center the image to keep important parts visible */
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    display: flex; /* Allows us to center content if needed */
-    justify-content: center;
-    align-items: center; /* Optional: If you want to center content like text or buttons */
+    width: 100%; /* Full width */
+    height: 962px; /* Set height */
+    background-size: cover; /* Image covers the container */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
 }
+
+
+
+.hero-title {
+    font-family: 'Space Mono-BoldItalic';
+    font-size: clamp(4rem, 10vw, 7rem); /* Responsive font size scaling */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    color: transparent; /* Transparent text fill */
+    -webkit-text-stroke: 2px white; /* White outline */
+    text-stroke: 2px white; /* White outline for newer browsers */
+    text-align: center; /* Center text alignment */
+    white-space: nowrap; /* Prevent text from wrapping to a new line */
+    
+}
+
+/* Additional Media Query for Fine-Tuning */
+@media (max-width: 768px) {
+    .hero-title {
+        -webkit-text-stroke: 1.5px white; /* Reduce stroke size for smaller screens */
+        text-stroke: 1.5px white; 
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adjust shadow for readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(1.5rem, 6vw, 3rem); /* Smaller font size for very small screens */
+        -webkit-text-stroke: 1px white; /* Further reduce stroke size */
+        text-stroke: 1px white;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5); /* Even smaller shadow */
+    }
+}
+
+
 
 /* Adjust for mobile view */
 @media (max-width: 768px) {
@@ -109,6 +143,8 @@ body, html {
 .menu-container.active {
     /* Optional: Additional styles for active state, e.g., mobile toggle */
 }
+
+
 
 .menu-principal {
     list-style: none;
@@ -298,14 +334,102 @@ color: black !important;
 
 /* Filters and Load More Button */
 #photo-filters {
-    margin-bottom: 20px;
+    
+    margin-bottom: 50px;
     display: flex;
     gap: 10px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 #photo-filters select {
     padding: 5px;
 }
+
+
+@media (max-width: 768px) {
+    #photo-filters {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+
+
+#filter-categorie { 
+    width: 210px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+
+
+
+    }
+
+#filter-format{
+    width: 210px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+    
+
+}
+
+#filter-date{
+    width: 210px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Desktop-specific layout */
+@media (min-width: 768px) {
+    #photo-filters {
+        margin-left: 180px;
+      flex-wrap: nowrap; /* Ensure items are on one line */
+      justify-content: center;
+      max-width: 1200px; /* Align all items to the left initially */
+    }
+  
+    #filter-format {
+      flex: 0 0 auto; /* Maintain dropdown size */
+    }
+  
+    #filter-categorie {
+        flex: 0 0 auto; /* Maintain dropdown size */
+      }
+
+    #filter-date {
+      margin-left: auto;
+      margin-right: 40px; /* Push the third dropdown to the right */
+    }
+  }
 
 #load-more-photos {
     margin-top: 20px;
@@ -388,9 +512,3 @@ color: black !important;
     height: 50px;
 }
 
-#photo-filters {
-    margin-top: 50px;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-}

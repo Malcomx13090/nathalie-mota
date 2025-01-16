@@ -3,7 +3,9 @@
 get_header();
 
 
-echo '<img id="hero-header">';
+echo '<div id="hero-header">
+    <h1 class="hero-title">PHOTGRAPHE EVENT</h1>
+</div>';
 
 ?>
 
@@ -15,28 +17,39 @@ echo '<img id="hero-header">';
     ?>
     <div id="photo-filters">
         <select id="filter-categorie">
-            <option value="">Toutes les catégories</option>
+            <option value="">CATÉGORIES</option>
             <?php foreach ($categories as $cat): ?>
                 <option value="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></option>
             <?php endforeach; ?>
         </select>
 
         <select id="filter-format">
-            <option value="">Tous les formats</option>
+            <option value="">FORMATS</option>
             <?php foreach ($formats as $format): ?>
                 <option value="<?php echo $format->slug; ?>"><?php echo $format->name; ?></option>
             <?php endforeach; ?>
         </select>
+
+        <select id="filter-date">
+    <option value="">TRIER PAR</option>
+    <option id="filter-date" value="DESC">DU PLUS RÉCENT AU PLUS ANCIENT</option>
+    <option id="filter-date" value="ASC">DU PLUS ANCIENT AU PLUS RÉCENT</option>
+</select>
+
     </div>
+
+    
 
     <!-- Galerie des photos -->
     <div id="photo-gallery">
         <?php
+        $sort_order = isset($_GET['sort_order']) ? $_GET['sort_order'] : 'DESC';
         // Boucle pour afficher les 8 dernières photos
         $args = array(
             'post_type'      => 'photo',
             'posts_per_page' => 8,
             'post_status'    => 'publish',
+            
         );
         $query = new WP_Query($args);
 
