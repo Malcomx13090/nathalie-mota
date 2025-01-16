@@ -107,12 +107,7 @@ function load_more_photos() {
             <?php
         endwhile;
         wp_reset_postdata();
-    else:
-        echo ''; // Return an empty string if no posts are found
-    endif;
-
-    wp_die();
-    else :
+   
         echo ''; // Return an empty string if no posts are found
     endif;
 
