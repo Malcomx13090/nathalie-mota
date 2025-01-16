@@ -20,24 +20,12 @@ wp_nav_menu(array(
   <!-- Modal Container -->
   <div class="modale" id="maModale" style="display: none;">
     <div class="modale-header">
-        <p id='nodis'>pppp</p>
+        <p id='nodis'></p>
     </div>
     
-    <form class="modale-form">
-        <label for="nom">NOM</label>
-        <input type="text" id="nom" name="nom" required>
-        
-        <label for="email">E-MAIL</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="photo-ref">RÉF. PHOTO</label>
-        <input type="text" id="photo-ref" name="photo-ref">
-        
-        <label for="message">MESSAGE</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        
-        <button type="submit" class="submit-button">Envoyer</button>
-    </form>
+    <div id="cf7-modal-form">
+    <?php echo do_shortcode('[contact-form-7 id="142644b" title="Contact form 1"]'); ?>
+    </div>
 </div>
 
     

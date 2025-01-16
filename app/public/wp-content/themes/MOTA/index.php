@@ -32,8 +32,8 @@ echo '<div id="hero-header">
 
         <select id="filter-date">
     <option value="">TRIER PAR</option>
-    <option id="filter-date" value="DESC">DU PLUS RÉCENT AU PLUS ANCIENT</option>
-    <option id="filter-date" value="ASC">DU PLUS ANCIENT AU PLUS RÉCENT</option>
+    <option id="filter-date" value="DESC">Du plus récent au plus ancien</option>
+    <option id="filter-date" value="ASC">Du plus ancient au plus récent</option>
 </select>
 
     </div>

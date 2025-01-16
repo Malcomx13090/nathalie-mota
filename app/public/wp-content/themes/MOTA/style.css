@@ -43,6 +43,35 @@ Text Domain: blank-theme
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-Italic';
+    src: url('fonts/Poppins-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-BoldItalic';
+    src: url('fonts/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+
 #hero-header {
     width: 100%; /* Full width */
     height: 962px; /* Set height */
@@ -529,34 +558,7 @@ color: black ;
 }
 
 /* Modal Overlay */
-/* Modal Overlay */
-.modale-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
-    z-index: 999; /* Below the modal content */
-    display: none; /* Initially hidden */
-}
 
-/* Modal Container */
-.modale {
-    border: 2px solid #000000;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center modal */
-    background-color: white;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    z-index: 1000; /* Above the overlay */
-    display: none; /* Initially hidden */
-    padding: 0;
-}
 
 /* Modal Header */
 .modale-header {
@@ -570,16 +572,56 @@ color: black ;
     overflow: hidden; }
 
 
+    @media (max-width: 768px) {
+        .modale-header {
+            width: 100%;
+            height: 10%; /* Height of the header */
+            background-image: url('http://nathalie-mota.local/wp-content/uploads/2025/01/Contact-header.png');
+            background-repeat: repeat-x; /* Repeat the image horizontally */
+            background-position: 0% top; /* Move the background image 20% to the left */
+            background-size: auto 100%; /* Stretch the background image horizontally */
+            margin: 0;
+            overflow: hidden; }
+    }
+    
 
 
-/* Modal Content */
+/* Modal Overlay */
+.modale-overlay {
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    z-index: 999; /* Below the modal content */
+    display: none; /* Initially hidden */
+}
 
+/* Modal Container */
+.modale {
+    
+    border: 5px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center modal */
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    
+    z-index: 1000; /* Above the overlay */
+    display: none; /* Initially hidden */
+    padding: 0;
+}
 
-/* Modal Title */
-.modale-title {
-    width: 1000px;
-    height: 400px;
-    overflow: hidden;
+@media (max-width: 768px) { 
+    .modale {
+        border: 3px solid black;
+        width: 70%;
+    height: 80%;
+    }
 }
 
 /* Form Styles */
@@ -588,30 +630,137 @@ color: black ;
     flex-direction: column;
     gap: 15px;
     justify-self: center;
+    padding: 20px; /* Optional, add padding to the form */
+    border: 1px solid #72727262;
+    
+
+top: 23px;
+gap: 0px;
+border-radius: 8px 8px 8px 8px;
+border: 1px 1px 1px 1px;
+
+
 }
 
-.modale-form label {
-    font-weight: bold;
-    text-align: left;
+.modale label {
+    font-family: 'Poppins-Regular' ;
+    color: #000000;
+    
+    font-size: 1.2rem;
+    
+    margin-left: 80px;
 }
 
-.modale-form input, 
+.modale-form input,
 .modale-form textarea {
     width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 12px; /* Increased padding for better spacing */
+    
     border-radius: 5px;
     font-size: 1rem;
+    margin-bottom: 10px; /* Add margin to the bottom of the fields */
 }
 
-.modale-form .submit-button {
+.modale-form .input {
+    height: 40px; /* Adjust the height of the input fields */
+    
+}
+
+.modale .textarea {
+    height: 100px; /* Adjust height for the textarea */
+    
+    resize: none;
+
+    
+}
+
+.modale .submit-button {
+    width: 70%;
+    height:80px;
     padding: 10px 20px;
     background-color: #ccc;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    text-transform: uppercase; /* Optional: uppercase text */
+    transition: background-color 0.3s ease;
+    margin-left: 75px;
+    justify-items: center;
 }
+
+
+
+
+@media (max-width: 768px) { 
+    .modale .submit-button {
+        width: 70%;
+        height: 45px;
+        padding: 10px 20px;
+        background-color: #ccc;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        text-transform: uppercase; /* Optional: uppercase text */
+        transition: background-color 0.3s ease;
+        margin-left: 40px;
+        justify-items: center;
+}
+
+.modale-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-self: center;
+    padding: 20px; /* Optional, add padding to the form */
+    border: 1px solid #72727262;
+    top: 23px;
+    gap: 0px;
+    border-radius: 8px 8px 8px 8px;
+    border: 1px 1px 1px 1px;
+
+
+}
+
+.modale label {
+    font-family: 'Poppins-Regular' ;
+    color: #000000;
+    
+    font-size: 1.2rem;
+    
+    margin-left: 05px;
+}
+
+.modale-form input,
+.modale-form textarea {
+    width: 80%;
+    padding: 12px; /* Increased padding for better spacing */
+    height: 10%;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px; /* Add margin to the bottom of the fields */
+}
+
+.modale .input {
+    height: 10px; /* Adjust the height of the input fields */
+    width: 80%;
+    
+}
+
+.modale .textarea {
+    height: 25px; /* Adjust the height of the input fields */
+    width: 80%;
+    resize: none;
+
+
+
+}
+
+
+
+
+
 
 .modale-form .submit-button:hover {
     background-color: #bbb;
@@ -630,18 +779,16 @@ color: black ;
 
 #nodis {
     opacity: 0.0;
+    color: #ffffff;
 }
 
 /* Modal Content */
 .modale-content {
-    
+    border: 2px solid #000000;
     background-color: white;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    
-    
 }
-
 
 

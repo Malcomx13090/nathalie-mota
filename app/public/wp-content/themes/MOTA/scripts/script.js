@@ -89,6 +89,36 @@ fermerBouton.addEventListener('click', function() {
 });
 
 
+// Submit form via AJAX using CF7's AJAX functionality
+var cf7Form = document.querySelector('#cf7-modal-form form');
+if (cf7Form) {
+    cf7Form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Submit the form using Contact Form 7's AJAX
+        var cf7 = window.wpcf7;
+        var form = this;
+
+        // Trigger the form submission via AJAX
+        cf7.submit(form).then(function(response) {
+            // On success, hide the modal and show success message
+            if (response.status === 'mail_sent') {
+                alert('Message sent successfully');
+                form.reset(); // Reset form fields
+                modale.style.display = 'none'; // Close the modal
+                overlay.style.display = 'none';
+            } else {
+                alert('There was an error sending your message.');
+            }
+        }).catch(function(error) {
+            console.error('Error:', error);
+            alert('An error occurred.');
+        });
+    });
+}
+
+
+
 
 
 
