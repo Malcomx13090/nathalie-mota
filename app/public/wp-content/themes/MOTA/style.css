@@ -131,8 +131,8 @@ body, html {
     position: absolute;
     top: 100%; /* Align menu below header */
     left: 0;
-    
-    background-color: #fff;
+    justify-content: center;
+    background-color: #ffffff;
     z-index: 1000;
     
     transition: max-height 0.3s ease-in-out; /* Smooth open/close effect */
@@ -166,7 +166,7 @@ font-weight: 400;
 line-height: 23.7px;
 text-align: left;
 text-decoration: none !important;
-color: black !important;
+color: black ;
 }
 
 /* Toggle Button */
@@ -191,6 +191,8 @@ color: black !important;
         display: flex; /* Show on mobile */
         align-items: center;
         justify-content: center;
+        
+        
     }
 
     .menu-container {
@@ -200,18 +202,26 @@ color: black !important;
         width: 100%;
         display: none; /* Hidden by default */
         flex-direction: column; /* Stack links vertically */
-        align-items: flex-start;
+        align-items: center;
+        background-color: #ff0000;
+        
     }
 
     .menu-container.active {
         display: flex; /* Show when active */
         max-height: 500px; /* Show menu with height constraint */
         overflow: visible;
+        
     }
 
     .menu-principal {
         flex-direction: column;
-        align-items: flex-start; /* Align links to the left */
+        justify-content: center; /* Align links to the left */
+        
+    }
+
+    .menu-principal li a {
+        color: #ffffff !important;
     }
 }
 
@@ -357,6 +367,11 @@ color: black !important;
         flex-wrap: wrap;
         align-items: center;
     }
+    
+    #photo-filters select{
+        width: 270px;
+        height: 43px;
+    }
 }
 
 
@@ -406,6 +421,13 @@ color: black !important;
     align-items: center;
     background-color: #fff;
     cursor: pointer;
+}
+
+#filter-categorie:hover,
+#filter-format:hover,
+#filter-date:hover {
+    color: white; /* Change text color on hover */
+    background-color: red; /* Change background color to red */
 }
 
 /* Desktop-specific layout */
