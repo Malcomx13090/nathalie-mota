@@ -22,5 +22,5 @@ while (have_posts()) : the_post();
     <p><strong>Formats :</strong> <?php echo get_the_term_list(get_the_ID(), 'format', '', ', '); ?></p>
     <?php
 endwhile;
-
 get_footer();
+?>
