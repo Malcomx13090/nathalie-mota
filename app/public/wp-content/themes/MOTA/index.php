@@ -55,9 +55,14 @@ echo '<div id="hero-header">
 
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
-                ?>
-                 <div class="photo-item">
-                <a href="<?php the_permalink(); ?>">
+            $image_full_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+        $single_url = get_permalink(get_the_ID());
+        ?>
+                
+                 <div class="photo-item" data-image-url="<?php echo esc_url($image_full_url); ?>" 
+                 data-single-url="<?php echo esc_url($single_url); ?>" id="photo<?php echo get_the_ID();?>">
+                 
+                
                 <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
                 </a>
             </div>
@@ -75,6 +80,13 @@ echo '<div id="hero-header">
     <button id="load-more-photos" data-page="1">Charger plus</button>
     </div>
 </main>
+
+<div id="photo-lightbox" class="hidden">
+    <div class="lightbox-content">
+        <img id="lightbox-image" src="" alt="Photo">
+        <a href="#" id="view-details">View Details</a>
+    </div>
+</div>
 
 <?php
 

@@ -57,6 +57,69 @@ jQuery(document).ready(function ($) {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const lightbox = document.getElementById('photo-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const viewDetailsButton = document.getElementById('view-details');
+
+    // Gérer le clic sur les éléments "photo-item"
+    document.querySelectorAll('.photo-item').forEach(item => {
+        item.addEventListener('click', function () {
+            const imageUrl = this.getAttribute('data-image-url');
+            const singleUrl = this.getAttribute('data-single-url');
+
+            if (imageUrl && singleUrl) {
+                // Mettre à jour le contenu de la modale à chaque clic
+                lightboxImage.src = imageUrl;
+                viewDetailsButton.href = singleUrl;
+                console.log("url: "+singleUrl); // Mettre à jour le lien
+                viewDetailsButton.target = '_blank'; // Ouvrir dans un nouvel onglet
+
+                // Afficher la modale ou mettre à jour son contenu
+                lightbox.classList.remove('hidden');
+            }
+        });
+    });
+
+    // Fermer la modale en cliquant à l'extérieur
+    lightbox.addEventListener('click', function (event) {
+        if (event.target === lightbox) {
+            lightbox.classList.add('hidden');
+        }
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('button-contact').addEventListener('click', function () {
+        // Open the modal
+        const modal = document.getElementById('maModale2');
+        if (modal) {
+            modal.style.display = 'block';
+        }
+    });
+
+    // Optional: Close the modal when clicking outside
+    document.addEventListener('click', function (event) {
+        const modal = document.getElementById('maModale2');
+        if (modal && !modal.contains(event.target) && event.target.id !== 'button-contact') {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+
+document.addEventListener('click', function (event) {
+    const modal = document.getElementById('maModale2');
+    const button = document.getElementById('button-contact');
+    if (modal && event.target !== button && !modal.contains(event.target)) {
+        modal.style.display = 'none';
+    }
+});
+
+
+
 
 
 
@@ -106,3 +169,4 @@ const randomImage = imageGallery[Math.floor(Math.random() * imageGallery.length)
 
 // Set the random image as the background
 heroHeader.style.backgroundImage = `url('${randomImage}')`;
+

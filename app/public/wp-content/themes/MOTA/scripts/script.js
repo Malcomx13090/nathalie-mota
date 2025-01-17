@@ -89,6 +89,7 @@ fermerBouton.addEventListener('click', function() {
 });
 
 
+
 // Submit form via AJAX using CF7's AJAX functionality
 var cf7Form = document.querySelector('#cf7-modal-form form');
 if (cf7Form) {
