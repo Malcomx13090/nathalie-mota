@@ -147,6 +147,14 @@ body, html {
     border-bottom: 1px solid #ddd;
 }
 
+@media (max-width: 768px) {
+    .header-container {
+        width: full-width;
+        
+    }
+}
+
+
 /* Logo */
 .logo {
     width: 216px;
@@ -350,7 +358,7 @@ color: black ;
 
 /* Modal Styles */
 .modale {
-    position: fixed;
+    
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -372,109 +380,79 @@ color: black ;
 }
 
 /* Filters and Load More Button */
+/* Styles généraux pour les filtres */
+/* Styles généraux pour les filtres */
 #photo-filters {
-    
-    margin-bottom: 50px;
-    display: flex;
-    gap: 10px;
     margin-top: 50px;
+    margin-bottom: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Distribute space equally between items */
+    flex-wrap: nowrap; /* No wrapping */
+    max-width: 1160px; /* Fix maximum width */
+     /* Center align on the page */
+    align-items: center; /* Vertically center items */
+    gap: 10px;
 }
 
 #photo-filters select {
     padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
 }
 
+/* Styles spécifiques pour chaque filtre */
+#filter-categorie, #filter-format, #filter-date {
+    width: 210px; /* Maintain fixed width */
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
 
+/* Réactivité pour les petits écrans */
 @media (max-width: 768px) {
     #photo-filters {
-        margin-top: 50px;
-        margin-bottom: 30px;
-        display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         align-items: center;
     }
-    
-    #photo-filters select{
+
+    #photo-filters select {
         width: 270px;
         height: 43px;
     }
-}
 
-
-
-#filter-categorie { 
-    width: 210px;
-    height: 30px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    cursor: pointer;
-
-
-
+    #filter-categorie, #filter-format, #filter-date {
+        width: 100%; /* Take full width available */
     }
-
-#filter-format{
-    width: 210px;
-    height: 30px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    cursor: pointer;
-    
-
 }
 
-#filter-date{
-    width: 210px;
-    height: 30px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-
-/* Desktop-specific layout */
-@media (min-width: 768px) {
+/* Réactivité pour les écrans moyens et grands */
+@media (min-width: 769px) {
     #photo-filters {
-        margin-left: 180px;
-      flex-wrap: nowrap; /* Ensure items are on one line */
-      justify-content: center;
-      max-width: 1200px; /* Align all items to the left initially */
+        justify-content: space-between;
+        margin-left: auto; /* Center align on larger screens */
+        margin-right: auto; 
     }
-  
-    #filter-format {
-      flex: 0 0 auto; /* Maintain dropdown size */
+
+    #filter-categorie, #filter-format {
+        flex: 0 0 210px; /* Fixed width for categories and format */
+        margin-right: 10px; /* Ensure spacing between items */
     }
-  
-    #filter-categorie {
-        flex: 0 0 auto; /* Maintain dropdown size */
-      }
 
     #filter-date {
-      margin-left: auto;
-      margin-right: 40px; /* Push the third dropdown to the right */
+        margin-left: auto;
+        margin-right: 0; /* Push the third dropdown to the right */
     }
-  }
+}
+
 
 #load-more-photos {
     margin-top: 20px;
@@ -620,7 +598,7 @@ color: black ;
     .modale {
         border: 3px solid black;
         width: 70%;
-    height: 80%;
+    height: 85%;
     }
 }
 
@@ -667,14 +645,15 @@ border: 1px 1px 1px 1px;
 }
 
 .modale .textarea {
-    height: 100px; /* Adjust height for the textarea */
-    
-    resize: none;
-
+   
+        height: 70px;
+        width: 60%;
+        resize: none;
     
 }
 
 .modale .submit-button {
+    font-family: 'Poppins-Regular';
     width: 70%;
     height:80px;
     padding: 10px 20px;
@@ -694,7 +673,8 @@ border: 1px 1px 1px 1px;
 
 @media (max-width: 768px) { 
     .modale .submit-button {
-        width: 70%;
+        font-family: 'Poppins-Regular';
+        width: 95%;
         height: 45px;
         padding: 10px 20px;
         background-color: #ccc;
@@ -704,7 +684,7 @@ border: 1px 1px 1px 1px;
         font-size: 1rem;
         text-transform: uppercase; /* Optional: uppercase text */
         transition: background-color 0.3s ease;
-        margin-left: 40px;
+        margin-left: 7px;
         justify-items: center;
 }
 
@@ -724,7 +704,8 @@ border: 1px 1px 1px 1px;
 }
 
 .modale label {
-    font-family: 'Poppins-Regular' ;
+    font-family: 'Poppins-Regular';
+
     color: #000000;
     
     font-size: 1.2rem;
@@ -735,7 +716,7 @@ border: 1px 1px 1px 1px;
 .modale-form input,
 .modale-form textarea {
     width: 80%;
-    padding: 12px; /* Increased padding for better spacing */
+    /* Increased padding for better spacing */
     height: 10%;
     border-radius: 5px;
     font-size: 1rem;
@@ -749,7 +730,7 @@ border: 1px 1px 1px 1px;
 }
 
 .modale .textarea {
-    height: 25px; /* Adjust the height of the input fields */
+    height: 70px;
     width: 80%;
     resize: none;
 
@@ -757,7 +738,7 @@ border: 1px 1px 1px 1px;
 
 }
 
-
+}
 .modale-form .submit-button:hover {
     background-color: #bbb;
 }
@@ -788,3 +769,318 @@ border: 1px 1px 1px 1px;
 }
 
 
+
+
+/* Lightbox overlay */
+#lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Lightbox content container */
+#lightbox-content {
+    position: relative;
+    max-width: 90%; /* Ensure that the content area doesn't stretch too wide */
+    max-height: 90%; /* Limit max height to prevent overflow */
+}
+
+/* Lightbox image styling */
+#lightbox-image {
+    max-width: 100%; /* Image can take up all the available width */
+    max-height: 80vh; /* Limit image height to 80% of the viewport height */
+    object-fit: contain; /* Ensure the image is contained within the bounds (aspect ratio maintained) */
+    display: block;
+    margin: auto;
+}
+
+/* Close button styling */
+#open-single-photo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+#open-single-photo:hover {
+    background-color: #ddd;
+}
+
+
+/* Desktop-specific adjustments */
+@media screen and (min-width: 768px) {
+    #lightbox-content {
+        width: 70%; /* Allow more width on larger screens */
+        height: auto;
+    }
+
+    #lightbox-image {
+        max-width: 90%; /* Let the image be slightly larger on desktop */
+        max-height: 80vh; /* Keep the height limit for large images */
+    }
+}
+
+/* For very large screens (e.g., desktop or widescreens) */
+@media screen and (min-width: 1200px) {
+    #lightbox-content {
+        width: 60%; /* Further reduce the width on very large screens */
+    }
+
+    #lightbox-image {
+        max-width: 80%; /* Ensure images don’t get too large */
+        max-height: 70vh; /* A bit smaller height limit for larger screens */
+    }
+}
+
+
+.photo-image² {    
+    max-width: 100%;
+    height: auto;
+    
+}
+
+.responsive-img² {
+    max-width: 100%;
+    height: auto;
+}
+
+
+@media (max-width: 768px) {
+    .photo-image² {    
+        
+        order: ;  
+    }
+
+    .responsive-img² {
+        max-width: 100%;
+        height: auto;
+        
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .photo-bio{
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .photo-header² {
+        order:99; 
+        margin-right: 0px;
+        
+    }
+    .photo-main² {
+        order: -40;
+    }
+    
+}
+
+
+
+.photo-main² {
+   
+
+}
+
+.contact-butt {
+    order: 9;
+}
+
+
+.photo-bio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.single-photo-container² {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.photo-header² {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 10px;
+    justify-content: end;
+    border-bottom: 1px solid #333;
+    
+    
+    margin-bottom: 5px;
+}
+
+
+.metasingle {
+    font-family: 'Space Mono-Regular';
+}
+
+
+.photo-title² {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.photo-meta² {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.photo-question² {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.contact-button² {
+    padding:  20px;
+    background-color: #eaeaea;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 35px;
+    margin-left: 41px;
+    width: 200px;
+    
+}
+
+
+.metasingle² {
+    font-family: 'Space Mono-Regular';
+    margin-bottom: 35px;
+}
+
+.underpic{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+.related-photos² {
+    margin-top: 40px;
+}
+
+.related-photos² h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.related-photos-grid² {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.related-photo-item² img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+  .photo-title² {
+    font-family: 'Space Mono-Regular';
+    font-size: 50px;
+    text-transform: uppercase;
+  }
+
+
+
+  .underpic {
+    position: relative;
+}
+
+.pagination-arrows {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.pagination-arrows a {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.pagination-arrows .next-photo-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    
+}
+
+.pagination-arrows .next-photo-thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 70px;
+}
+
+
+
+.pagination-arrows .prev-photo,
+.pagination-arrows .next-photo {
+    font-size: 30px;
+}
+
+
+
+@media (max-width: 768px) {
+    .pagination-arrows {
+        display: none;
+    }
+    
+    .pagination-arrows a {
+        display: none;
+    }
+    
+    .pagination-arrows .next-photo-preview {
+        display: none;
+    }
+    
+    .pagination-arrows .next-photo-thumbnail {
+        display: none;
+    }
+    
+    .pagination-arrows a:hover {
+        display: none;
+    }
+    
+    .pagination-arrows .prev-photo,
+    .pagination-arrows .next-photo {
+        display: none;
+    }
+    
+}

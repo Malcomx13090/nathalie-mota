@@ -1,0 +1,99 @@
+<?php
+    $categories = get_terms('categorie');
+    $formats = get_terms('format');
+    ?>
+    <div id="photo-filters">
+        <select id="filter-categorie">
+            <option value="">CATÉGORIES</option>
+            <?php foreach ($categories as $cat): ?>
+                <option value="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <select id="filter-format">
+            <option value="">FORMATS</option>
+            <?php foreach ($formats as $format): ?>
+                <option value="<?php echo $format->slug; ?>"><?php echo $format->name; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <select id="filter-date">
+    <option value="">TRIER PAR</option>
+    <option id="filter-date" value="DESC">DU PLUS RÉCENT AU PLUS ANCIENT</option>
+    <option id="filter-date" value="ASC">DU PLUS ANCIENT AU PLUS RÉCENT</option>
+</select>
+
+    </div>
+
+
+<!-- Filtres des taxonomies -->
+    <?php
+    $categories = get_terms('categorie');
+    $formats = get_terms('format');
+    ?>
+    <div id="photo-filters">
+        <select id="filter-categorie">
+            <option id="">CATÉGORIES</option>
+            <?php foreach ($categories as $cat): ?>
+                <option value="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <select id="filter-format">
+            <option value="">FORMATS</option>
+            <?php foreach ($formats as $format): ?>
+                <option value="<?php echo $format->slug; ?>"><?php echo $format->name; ?></option>
+            <?php endforeach; ?>
+        </select>
+
+        <select id="filter-date">
+    <option value="">TRIER PAR</option>
+    <option id="filter-date" value="DESC">DU PLUS RÉCENT AU PLUS ANCIENT</option>
+    <option id="filter-date" value="ASC">DU PLUS ANCIENT AU PLUS RÉCENT</option>
+</select>
+
+    </div>
+
+
+<!-- Filtres des taxonomies -->
+    <?php
+    $categories = get_terms('categorie');
+    $formats = get_terms('format');
+    ?>
+    <div id="photo-filters">
+        <!-- Categories Dropdown -->
+        <div class="filter-dropdown" id="filter-categorie">
+            <div class="dropdown-selected">CATÉGORIES</div>
+            <ul class="dropdown-options">
+                <li data-value="">CATÉGORIES</li>
+                <?php foreach ($categories as $cat): ?>
+                    <li data-value="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <!-- Formats Dropdown -->
+        <div class="filter-dropdown" id="filter-format">
+            <div class="dropdown-selected">FORMATS</div>
+            <ul class="dropdown-options">
+                <li data-value="">FORMATS</li>
+                <?php foreach ($formats as $format): ?>
+                    <li data-value="<?php echo $format->slug; ?>"><?php echo $format->name; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <!-- Date Sorting Dropdown -->
+        <div class="filter-dropdown" id="filter-date">
+            <div class="dropdown-selected">TRIER PAR</div>
+            <ul class="dropdown-options">
+                <li data-value="DESC">DU PLUS RÉCENT AU PLUS ANCIEN</li>
+                <li data-value="ASC">DU PLUS ANCIEN AU PLUS RÉCENT</li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+
+
+
