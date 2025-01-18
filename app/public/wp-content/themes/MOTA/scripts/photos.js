@@ -57,31 +57,35 @@ jQuery(document).ready(function ($) {
     });
 });
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const lightbox = document.getElementById('photo-lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
     const viewDetailsButton = document.getElementById('view-details');
+    const galleryContainer = document.getElementById('photo-gallery'); // Replace with your gallery container's ID
 
-    // Gérer le clic sur les éléments "photo-item"
-    document.querySelectorAll('.photo-item').forEach(item => {
-        item.addEventListener('click', function () {
-            const imageUrl = this.getAttribute('data-image-url');
-            const singleUrl = this.getAttribute('data-single-url');
+    // Event delegation for dynamically added or updated photo items
+    galleryContainer.addEventListener('click', function (event) {
+        const clickedItem = event.target.closest('.photo-item'); // Check if a photo-item was clicked
+        if (clickedItem) {
+            const imageUrl = clickedItem.getAttribute('data-image-url');
+            const singleUrl = clickedItem.getAttribute('data-single-url');
 
             if (imageUrl && singleUrl) {
-                // Mettre à jour le contenu de la modale à chaque clic
+                // Update the lightbox content
                 lightboxImage.src = imageUrl;
                 viewDetailsButton.href = singleUrl;
-                console.log("url: "+singleUrl); // Mettre à jour le lien
-                viewDetailsButton.target = '_blank'; // Ouvrir dans un nouvel onglet
+                console.log("URL: " + singleUrl); // Log the URL
+                viewDetailsButton.target = '_blank'; // Open in a new tab
 
-                // Afficher la modale ou mettre à jour son contenu
+                // Show the lightbox
                 lightbox.classList.remove('hidden');
             }
-        });
+        }
     });
 
-    // Fermer la modale en cliquant à l'extérieur
+    // Close the lightbox when clicking outside the content
     lightbox.addEventListener('click', function (event) {
         if (event.target === lightbox) {
             lightbox.classList.add('hidden');

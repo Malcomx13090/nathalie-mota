@@ -81,13 +81,15 @@ echo '<div id="hero-header">
     </div>
 </main>
 
-<div id="photo-lightbox" class="hidden">
-    <div class="lightbox-content">
-        <img id="lightbox-image" src="" alt="Photo">
-        <a href="#" id="view-details">View Details</a>
-    </div>
-</div>
 
+
+
+<div class="lightbox hidden" id="photo-lightbox" >
+    <div class="lightbox-content">
+        <img id="lightbox-image" class="lightbox-image" src="" alt="Photo">
+        <a id="view-details" class="open-single-photo" href="#" target="_blank">VOIR LES DÉTAILS</a>
+    </div>    
+</div>
 <?php
 
 get_footer();

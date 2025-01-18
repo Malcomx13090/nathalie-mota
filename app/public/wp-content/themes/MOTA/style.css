@@ -768,55 +768,80 @@ border: 1px 1px 1px 1px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-
-
-
-
-/* Lightbox overlay */
-#lightbox-overlay {
+.lightbox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 1000;
+}
+
+
+/* Lightbox overlay */
+.lightbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    
+    
+}
+
+.lightbox.hidden {
+    display: none; /* Hidden state */
 }
 
 /* Lightbox content container */
-#lightbox-content {
-    position: relative;
-    max-width: 90%; /* Ensure that the content area doesn't stretch too wide */
-    max-height: 90%; /* Limit max height to prevent overflow */
+.lightbox-content {
+  
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;    /* Center align them horizontally */
+    justify-content: center; /* Center align them vertically (optional) */
+   
+    max-width: fit-content;
+    
+   
+    text-align: center;
+   
+}
+
+.lightbox.show {
+    display: flex; /* Display as flex to center content */
 }
 
 /* Lightbox image styling */
-#lightbox-image {
-    max-width: 100%; /* Image can take up all the available width */
-    max-height: 80vh; /* Limit image height to 80% of the viewport height */
-    object-fit: contain; /* Ensure the image is contained within the bounds (aspect ratio maintained) */
-    display: block;
-    margin: auto;
+.lightbox-image {
+    max-width: 100%;
+    height: auto; /* Ensure the image is contained within the bounds (aspect ratio maintained) */
+   
 }
 
 /* Close button styling */
-#open-single-photo {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #fff;
+.open-single-photo {
+    font-family: 'Poppins-Regular';
+   
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ccc;
     border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
     border-radius: 5px;
-    z-index: 100;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase; /* Optional: uppercase text */
+    transition: background-color 0.3s ease;
+    
+    justify-items: center;
 }
+
 
 #open-single-photo:hover {
     background-color: #ddd;
@@ -825,12 +850,12 @@ border: 1px 1px 1px 1px;
 
 /* Desktop-specific adjustments */
 @media screen and (min-width: 768px) {
-    #lightbox-content {
+    .lightbox-content {
         width: 70%; /* Allow more width on larger screens */
         height: auto;
     }
 
-    #lightbox-image {
+    .lightbox-image {
         max-width: 90%; /* Let the image be slightly larger on desktop */
         max-height: 80vh; /* Keep the height limit for large images */
     }
@@ -838,11 +863,11 @@ border: 1px 1px 1px 1px;
 
 /* For very large screens (e.g., desktop or widescreens) */
 @media screen and (min-width: 1200px) {
-    #lightbox-content {
+    .lightbox-content {
         width: 60%; /* Further reduce the width on very large screens */
     }
 
-    #lightbox-image {
+    .lightbox-image {
         max-width: 80%; /* Ensure images don’t get too large */
         max-height: 70vh; /* A bit smaller height limit for larger screens */
     }
