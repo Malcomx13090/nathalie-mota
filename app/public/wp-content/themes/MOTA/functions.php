@@ -38,6 +38,24 @@ add_action('wp_enqueue_scripts', 'ajouter_mon_script');
 add_theme_support('post-thumbnails');
 
 
+function mota_enqueue_scripts() {
+    // Register and enqueue the custom JavaScript file
+    wp_enqueue_script(
+        'mota-filters', // Handle for the script
+        get_template_directory_uri() . '/scripts/filtre.js', // Path to the script
+        array('jquery'), // Dependencies (jQuery in this case, if needed)
+        null, // Version (null to prevent cache issues)
+        true // Load in the footer
+    );
+}
+add_action('wp_enqueue_scripts', 'mota_enqueue_scripts');
+
+
+
+
+
+
+
 function load_jquery_in_wp() {
     if (!wp_script_is('jquery', 'enqueued')) {
         wp_enqueue_script('jquery');

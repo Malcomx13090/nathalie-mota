@@ -1111,4 +1111,27 @@ border: 1px 1px 1px 1px;
     
 }
 
+/*
+.filter-default {
+    color: #000000; /* Gray color for unselected filters 
+    background-color: #f9f9f9; /* Light background 
+    border: 1px solid #ccc;
+    transition: all 0.3s ease; /* Smooth transition effect 
+}
 
+.filter-active {
+    background-color: #ffffff !important; /* Red background for active filters 
+    color: #000000; /* White text for active filters 
+    border: 1px solid #ffffff !important;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Smooth transition effect 
+}
+
+/* Hover effect for both default and active filters 
+.filter-default:hover,
+.filter-active:hover {
+    background-color: #ff0000 !important; /* Red background on hover 
+    color: #000000; /* White text on hover 
+    border-color: #ff0000 !important;
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
