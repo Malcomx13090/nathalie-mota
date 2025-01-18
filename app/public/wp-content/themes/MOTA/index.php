@@ -15,28 +15,65 @@ echo '<div id="hero-header">
     $categories = get_terms('categorie');
     $formats = get_terms('format');
     ?>
-    <div id="photo-filters">
-        <select id="filter-categorie">
-            <option value="">CATÉGORIES</option>
+   <div id="photo-filters3">
+    <div class="custom-dropdown3" data-select-id="filter-categorie">
+        <div class="custom-select3">
+            CATÉGORIES
+            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:60px"></i>
+        </div>
+        <ul class="custom-options3">
+            <li data-value=""></li>
             <?php foreach ($categories as $cat): ?>
-                <option value="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></option>
+                <li data-value="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></li>
             <?php endforeach; ?>
-        </select>
-
-        <select id="filter-format">
-            <option value="">FORMATS</option>
-            <?php foreach ($formats as $format): ?>
-                <option value="<?php echo $format->slug; ?>"><?php echo $format->name; ?></option>
-            <?php endforeach; ?>
-        </select>
-
-        <select id="filter-date">
-    <option value="">TRIER PAR</option>
-    <option id="filter-date" value="DESC">Du plus récent au plus ancien</option>
-    <option id="filter-date" value="ASC">Du plus ancient au plus récent</option>
-</select>
-
+        </ul>
     </div>
+
+    <select id="filter-categorie" style="display: none;">
+        <option value="" >CATÉGORIES</option>
+        <?php foreach ($categories as $cat): ?>
+            <option value="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <div class="custom-dropdown3" data-select-id="filter-format">
+        <div class="custom-select3">
+            FORMATS
+            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:60px;"></i>
+        </div>
+        <ul class="custom-options3">
+            <li data-value=""></li>
+            <?php foreach ($formats as $format): ?>
+                <li data-value="<?php echo $format->slug; ?>"><?php echo $format->name; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+    <select id="filter-format" style="display: none;">
+        <option value="">FORMATS</option>
+        <?php foreach ($formats as $format): ?>
+            <option value="<?php echo $format->slug; ?>"><?php echo $format->name; ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <div class="custom-dropdown3" data-select-id="filter-date">
+        <div class="custom-select3">
+            TRIER PAR
+            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:60px"></i>
+        </div>
+        <ul class="custom-options3">
+            <li data-value=""></li>
+            <li data-value="DESC">Du plus récent au plus ancien</li>
+            <li data-value="ASC">Du plus ancien au plus récent</li>
+        </ul>
+    </div>
+
+    <select id="filter-date" style="display: none;">
+        <option value="">TRIER PAR</option>
+        <option value="DESC">Du plus récent au plus ancien</option>
+        <option value="ASC">Du plus ancien au plus récent</option>
+    </select>
+</div>
 
     
 

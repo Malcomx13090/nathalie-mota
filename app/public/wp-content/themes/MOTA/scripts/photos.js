@@ -142,6 +142,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.querySelectorAll('.custom-dropdown3').forEach(dropdown => {
+    const select = dropdown.querySelector('.custom-select3');
+    const options = dropdown.querySelectorAll('.custom-options3 li');
+    const nativeSelect = document.querySelector(`#${dropdown.getAttribute('data-select-id')}`); // Match native <select>
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            // Update custom dropdown display
+            select.textContent = option.textContent;
+
+            // Update the hidden native <select> value
+            nativeSelect.value = option.getAttribute('data-value');
+            nativeSelect.dispatchEvent(new Event('change')); // Trigger the change event
+            dropdown.querySelector('.custom-options3').style.display = 'none';
+        });
+    });
+
+    select.addEventListener('click', () => {
+        const optionsList = dropdown.querySelector('.custom-options3');
+        optionsList.style.display = optionsList.style.display === 'block' ? 'none' : 'block';
+    });
+});
 
 
 
