@@ -98,20 +98,37 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('button-contact').addEventListener('click', function () {
         // Open the modal
+        var modaleOverlay = document.querySelector('.modale-overlay'); 
+        modaleOverlay.style.display = 'block';
         const modal = document.getElementById('maModale2');
         if (modal) {
             modal.style.display = 'block';
         }
+
+    var reference = document.querySelector('.metasingle strong').nextSibling.textContent.trim();
+
+    // Populate the "photo-ref2" field with the reference value
+    var refPhotoField = document.getElementById('photo-ref2');
+    if (refPhotoField) {
+        refPhotoField.value = reference;
+    }
+});
     });
 
+
     // Optional: Close the modal when clicking outside
-    document.addEventListener('click', function (event) {
+    document.addEventListener('click', function(event) {
         const modal = document.getElementById('maModale2');
+        const overlay = document.querySelector('.modale-overlay');
+    
         if (modal && !modal.contains(event.target) && event.target.id !== 'button-contact') {
             modal.style.display = 'none';
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
         }
     });
-});
+
 
 
 document.addEventListener('click', function (event) {

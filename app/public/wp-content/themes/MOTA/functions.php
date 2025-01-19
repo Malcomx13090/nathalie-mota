@@ -160,3 +160,15 @@ add_action('after_setup_theme', 'custom_image_sizes');
 function custom_image_sizes() {
     add_image_size('custom-size', 564, 495, true); // Cropped to exact dimensions
 }
+
+
+
+
+function ajouter_reference_dynamique() {
+    wp_enqueue_script('mon-script', get_template_directory_uri() . '/scripts/script.js', array('jquery'), null, true);
+
+    wp_localize_script('mon-script', 'refData', array(
+        'reference' => esc_js(get_field('reference'))
+    ));
+}
+add_action('wp_enqueue_scripts', 'ajouter_reference_dynamique');

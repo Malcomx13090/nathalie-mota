@@ -425,7 +425,7 @@ color: black ;
     }
 
     #photo-filters select {
-        width: 270px;
+        width: 240px;
         height: 43px;
     }
 
@@ -566,6 +566,17 @@ color: black ;
 
 /* Modal Overlay */
 .modale-overlay {
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    z-index: 999; /* Below the modal content */
+    display: none; /* Initially hidden */
+}
+
+.modale2-overlay {
     
     top: 0;
     left: 0;
@@ -821,7 +832,10 @@ border: 1px 1px 1px 1px;
 /* Lightbox image styling */
 .lightbox-image {
     max-width: 100%;
-    height: auto; /* Ensure the image is contained within the bounds (aspect ratio maintained) */
+        max-height: 100%;
+        width: auto;
+        max-height: 530px;
+        margin-top: 40px; /* Ensure the image is contained within the bounds (aspect ratio maintained) */
    
 }
 
@@ -856,8 +870,8 @@ border: 1px 1px 1px 1px;
     }
 
     .lightbox-image {
-        max-width: 90%; /* Let the image be slightly larger on desktop */
-        max-height: 80vh; /* Keep the height limit for large images */
+        max-width: 100%; /* Let the image be slightly larger on desktop */
+        max-height: 100%; /* Keep the height limit for large images */
     }
 }
 
@@ -868,8 +882,11 @@ border: 1px 1px 1px 1px;
     }
 
     .lightbox-image {
-        max-width: 80%; /* Ensure images don’t get too large */
-        max-height: 70vh; /* A bit smaller height limit for larger screens */
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        max-height: 530px;
+        margin-top: 40px;/* A bit smaller height limit for larger screens */
     }
 }
 
@@ -1162,12 +1179,12 @@ border: 1px 1px 1px 1px;
             gap: 20px;
         }
     
-        #photo-filters66 select {
+        #photo-filters3 select {
             width: 270px;
             height: 43px;
         }
     
-        #filter-categorie6, #filter-format6, #filter-date6 {
+        #filter-categorie3, #filter-format3, #filter-date3 {
             width: 100%; /* Take full width available */
         }
     }
@@ -1178,7 +1195,9 @@ border: 1px 1px 1px 1px;
       }
       
       .custom-select3 {
-        
+        display: flex;
+    justify-content: center;
+    align-items: center;
         padding: 10px;
         border: 1px solid #ddd;
         border-radius: 8px;

@@ -16,10 +16,13 @@ echo '<div id="hero-header">
     $formats = get_terms('format');
     ?>
    <div id="photo-filters3">
+
+
+   
     <div class="custom-dropdown3" data-select-id="filter-categorie">
         <div class="custom-select3">
             CATÉGORIES
-            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:60px"></i>
+            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:55px" ></i>
         </div>
         <ul class="custom-options3">
             <li data-value=""></li>
@@ -39,7 +42,7 @@ echo '<div id="hero-header">
     <div class="custom-dropdown3" data-select-id="filter-format">
         <div class="custom-select3">
             FORMATS
-            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:60px;"></i>
+            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:80px"></i>
         </div>
         <ul class="custom-options3">
             <li data-value=""></li>
@@ -59,7 +62,7 @@ echo '<div id="hero-header">
     <div class="custom-dropdown3" data-select-id="filter-date">
         <div class="custom-select3">
             TRIER PAR
-            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:60px"></i>
+            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:80px"></i>
         </div>
         <ul class="custom-options3">
             <li data-value=""></li>

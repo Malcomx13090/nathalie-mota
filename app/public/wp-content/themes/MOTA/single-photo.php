@@ -38,7 +38,7 @@ while (have_posts()) : the_post();
     <div class='underpic'>
 
     <p class="metasingle²">Cette photo vous intéresse ?</p>
-    <button class="contact-button²" id="button-contact" >Contact</button>
+    <button class="contact-button²" id="button-contact">Contact</button>
 
     <!-- Pagination Arrows -->
     <div class="pagination-arrows">

@@ -20,15 +20,22 @@ wp_nav_menu(array(
 
 
   <!-- La modale cachée par défaut -->
-  <div class="modale" id="maModale2" style="display: none;">
+  <!-- Bouton pour ouvrir la modale -->
+
+
+<!-- Modale cachée par défaut -->
+<div class="modale" id="maModale2" style="display: none;">
     <div class="modale-header">
-        <p id='nodis'></p>
+        <p id="nodis"></p>
     </div>
     
     <div id="cf7-modal-form">
-    <?php echo do_shortcode('[contact-form-7 id="142644b" title="Contact form 1"]'); ?>
+        <?php echo do_shortcode('[contact-form-7 id="a9a6347" title="Contact form 1_copy"]'); ?>
     </div>
+    
 </div>
+
+
 
 
 
