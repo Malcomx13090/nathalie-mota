@@ -213,3 +213,5 @@ const randomImage = imageGallery[Math.floor(Math.random() * imageGallery.length)
 // Set the random image as the background
 heroHeader.style.backgroundImage = `url('${randomImage}')`;
 
+
+

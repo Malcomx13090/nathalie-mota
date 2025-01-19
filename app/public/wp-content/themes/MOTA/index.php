@@ -20,9 +20,11 @@ echo '<div id="hero-header">
 
    
     <div class="custom-dropdown3" data-select-id="filter-categorie">
+    
         <div class="custom-select3">
+        
             CATÉGORIES
-            <i class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:55px" ></i>
+            <i id="custom-dropdown3" class="dropdown-arrow3 fa-solid fa-chevron-down" style="margin-left:55px" ></i>
         </div>
         <ul class="custom-options3">
             <li data-value=""></li>
@@ -99,13 +101,16 @@ echo '<div id="hero-header">
         $single_url = get_permalink(get_the_ID());
         ?>
                 
-                 <div class="photo-item" data-image-url="<?php echo esc_url($image_full_url); ?>" 
-                 data-single-url="<?php echo esc_url($single_url); ?>" id="photo<?php echo get_the_ID();?>">
-                 
-                
-                <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
-                </a>
-            </div>
+                <div class="photo-item" data-image-url="<?php echo esc_url($image_full_url); ?>" data-single-url="<?php echo esc_url($single_url); ?>" id="photo<?php echo get_the_ID(); ?>">
+    <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
+    <div class="overlay">
+        <i class="logo-icon fa fa-eye"></i>
+        <div class="text-left"><?php the_title(); ?></div>
+        <div class="text-right"><?php echo get_the_term_list(get_the_ID(), 'categorie', '', ', '); ?></div>
+        <button class="top-right-button">Button</button> <!-- Placeholder button -->
+    </div>
+</div>
+
                 <?php
             endwhile;
             wp_reset_postdata();
