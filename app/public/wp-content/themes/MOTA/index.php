@@ -99,7 +99,14 @@ echo '<div id="hero-header">
             while ($query->have_posts()) : $query->the_post();
             $image_full_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
         $single_url = get_permalink(get_the_ID());
-        ?>   <div class="photo-item" data-image-url="<?php echo esc_url($image_full_url); ?>" data-single-url="<?php echo esc_url($single_url); ?>" id="photo<?php echo get_the_ID(); ?>">
+        ?>   
+       <div class="photo-item" 
+     data-image-url="<?php echo esc_url($image_full_url); ?>" 
+     data-single-url="<?php echo esc_url($single_url); ?>"
+     data-categories="<?php echo esc_html(strip_tags(get_the_term_list(get_the_ID(), 'categorie', '', ', '))); ?>" 
+     data-reference="<?php echo esc_html(get_field('reference')); ?>" 
+     id="photo<?php echo get_the_ID(); ?>">
+
         <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
         <div class="overlay">
             <i class="fa-solid fa-expand"></i>  <!-- Expand button -->
@@ -126,7 +133,6 @@ echo '<div id="hero-header">
 </main>
 
 
-
 <div class="lightbox hidden" id="photo-lightbox">
     <div class="lightbox-content">
         <button class="lightbox-arrow left-arrow" id="prev-photo">
@@ -136,8 +142,15 @@ echo '<div id="hero-header">
         <button class="lightbox-arrow right-arrow" id="next-photo">
             <span>Suivante </span>
         </button> <!-- Right arrow -->
-        <a id="view-details" class="open-single-photo" href="#" target="_blank">VOIR LES DÉTAILS</a>
-    </div>
+        <div>
+        <a id="view-details" class="open-single-photo" style="display:none;">VOIR LES DÉTAILS</a>
+       </div>
+        
+       <div class="ligthbox10">
+       <div class="text-left10" id="lightbox-categories"></div>
+       <div class="text-right10" id="lightbox-reference"></div>
+        </div>
+        </div>
 </div>
 
 

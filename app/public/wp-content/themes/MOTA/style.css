@@ -872,7 +872,7 @@ border: 1px 1px 1px 1px;
     background-color: #ccc;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: text;
     font-size: 1rem;
     text-transform: uppercase; /* Optional: uppercase text */
     transition: background-color 0.3s ease;
@@ -1444,7 +1444,7 @@ border: 1px 1px 1px 1px;
         justify-content: flex-start;
         font-size: 40px;
         font-family: 'Space Mono-Regular';
-        color: #000000;
+        color: #ffffff;
         text-decoration: none !important;
         font-weight: 100;
     }
@@ -1466,7 +1466,7 @@ border: 1px 1px 1px 1px;
         justify-content: flex-end;
         font-size: 40px;
         font-family: 'Space Mono-Regular';
-        color: #000000;
+        color: #ffffff;
         text-decoration: none !important;
         font-weight: 100;
     }
@@ -1513,3 +1513,53 @@ border: 1px 1px 1px 1px;
         font-size: 14px;
     }
     
+
+    .text-right10 a {
+        color: #ffffff !important; /* !important forces this style to be applied */
+      }
+
+      .text-right10 {
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        color: white;
+        font-size: 20px;
+        padding: 5px;
+        font-family: 'Space Mono-Regular';
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .text-right10 {
+        align-self: flex-end;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 200px;
+    
+    }
+
+    .text-left10 a {
+        color: #ffffff !important; /* !important forces this style to be applied */
+      }
+
+      .text-left10 {
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        color: white;
+        font-size: 20px;
+        padding: 5px;
+        z-index: 2;
+        font-family: 'Poppins-Regular';
+    }
+
+    .text-left10 {
+        align-self: flex-end;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-top: 30px;
+        margin-right: 200px;
+        pointer-events: none;
+    
+    }
+
+    .ligthbox10 {
+        display: flex;
+    }
