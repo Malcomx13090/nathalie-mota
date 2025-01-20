@@ -99,17 +99,16 @@ echo '<div id="hero-header">
             while ($query->have_posts()) : $query->the_post();
             $image_full_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
         $single_url = get_permalink(get_the_ID());
-        ?>
-                
-                <div class="photo-item" data-image-url="<?php echo esc_url($image_full_url); ?>" data-single-url="<?php echo esc_url($single_url); ?>" id="photo<?php echo get_the_ID(); ?>">
-    <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
-    <div class="overlay">
-        <i class="logo-icon fa fa-eye"></i>
-        <div class="text-left"><?php the_title(); ?></div>
-        <div class="text-right"><?php echo get_the_term_list(get_the_ID(), 'categorie', '', ', '); ?></div>
-        <button class="top-right-button">Button</button> <!-- Placeholder button -->
+        ?>   <div class="photo-item" data-image-url="<?php echo esc_url($image_full_url); ?>" data-single-url="<?php echo esc_url($single_url); ?>" id="photo<?php echo get_the_ID(); ?>">
+        <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
+        <div class="overlay">
+            <i class="fa-solid fa-expand"></i>  <!-- Expand button -->
+            <i class="logo-icon fa fa-eye"></i>
+            <div class="text-left"><?php the_title(); ?></div>
+            <div class="text-right"><?php echo get_the_term_list(get_the_ID(), 'categorie', '', ', '); ?></div>
+            
+        </div>
     </div>
-</div>
 
                 <?php
             endwhile;
@@ -128,13 +127,20 @@ echo '<div id="hero-header">
 
 
 
-
-<div class="lightbox hidden" id="photo-lightbox" >
+<div class="lightbox hidden" id="photo-lightbox">
     <div class="lightbox-content">
+        <button class="lightbox-arrow left-arrow" id="prev-photo">
+            <span> Précédente</span>
+        </button> <!-- Left arrow -->
         <img id="lightbox-image" class="lightbox-image" src="" alt="Photo">
+        <button class="lightbox-arrow right-arrow" id="next-photo">
+            <span>Suivante </span>
+        </button> <!-- Right arrow -->
         <a id="view-details" class="open-single-photo" href="#" target="_blank">VOIR LES DÉTAILS</a>
-    </div>    
+    </div>
 </div>
+
+
 <?php
 
 get_footer();

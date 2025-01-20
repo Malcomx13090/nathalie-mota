@@ -58,30 +58,44 @@ jQuery(document).ready(function ($) {
 });
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
     const lightbox = document.getElementById('photo-lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
     const viewDetailsButton = document.getElementById('view-details');
     const galleryContainer = document.getElementById('photo-gallery'); // Replace with your gallery container's ID
 
+    if (!lightbox || !lightboxImage || !viewDetailsButton || !galleryContainer) {
+        console.error("Missing required elements. Ensure the IDs are correct.");
+        return;
+    }
+
     // Event delegation for dynamically added or updated photo items
     galleryContainer.addEventListener('click', function (event) {
         const clickedItem = event.target.closest('.photo-item'); // Check if a photo-item was clicked
-        if (clickedItem) {
-            const imageUrl = clickedItem.getAttribute('data-image-url');
-            const singleUrl = clickedItem.getAttribute('data-single-url');
+        if (!clickedItem) return;
 
-            if (imageUrl && singleUrl) {
+        const imageUrl = clickedItem.getAttribute('data-image-url');
+        const singleUrl = clickedItem.getAttribute('data-single-url');
+
+        if (imageUrl && singleUrl) {
+            if (event.target.closest('.fa-expand')) {
                 // Update the lightbox content
                 lightboxImage.src = imageUrl;
                 viewDetailsButton.href = singleUrl;
-                console.log("URL: " + singleUrl); // Log the URL
                 viewDetailsButton.target = '_blank'; // Open in a new tab
+
+                console.log("Lightbox image URL:", imageUrl);
+                console.log("Details button URL:", singleUrl);
 
                 // Show the lightbox
                 lightbox.classList.remove('hidden');
+            } else if (event.target.closest('.fa-eye')) {
+                // Open the single URL directly
+                console.log("Opening URL:", singleUrl);
+                window.open(singleUrl, '_blank');
             }
+        } else {
+            console.warn("Missing data attributes for clicked item:", clickedItem);
         }
     });
 
@@ -91,9 +105,18 @@ document.addEventListener('DOMContentLoaded', function () {
             lightbox.classList.add('hidden');
         }
     });
+
+    // Rebind actions for new content loaded via AJAX
+    function rebindDynamicContent() {
+        console.log('Rebinding actions for new content!');
+        // Event delegation ensures new content is automatically handled.
+    }
 });
 
 
+
+
+  
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('button-contact').addEventListener('click', function () {
@@ -212,6 +235,107 @@ const randomImage = imageGallery[Math.floor(Math.random() * imageGallery.length)
 
 // Set the random image as the background
 heroHeader.style.backgroundImage = `url('${randomImage}')`;
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const lightbox = document.getElementById('photo-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const viewDetailsButton = document.getElementById('view-details');
+    const galleryContainer = document.getElementById('photo-gallery');
+    const prevPhotoButton = document.getElementById('prev-photo');
+    const nextPhotoButton = document.getElementById('next-photo');
+
+    let photoItems = []; // To store all photo items in the gallery
+    let currentPhotoIndex = -1; // To track the current photo being displayed
+
+    if (!lightbox || !lightboxImage || !viewDetailsButton || !galleryContainer) {
+        console.error("Missing required elements. Ensure the IDs are correct.");
+        return;
+    }
+
+    // Initialize gallery items
+    function initializeGallery() {
+        photoItems = Array.from(galleryContainer.querySelectorAll('.photo-item'));
+        if (photoItems.length === 0) {
+            console.warn("No photo items found in the gallery.");
+        }
+    }
+
+    // Open the lightbox with a specific photo
+    function openLightbox(index) {
+        if (index < 0 || index >= photoItems.length) return;
+
+        currentPhotoIndex = index;
+
+        const clickedItem = photoItems[index];
+        const imageUrl = clickedItem.getAttribute('data-image-url');
+        const singleUrl = clickedItem.getAttribute('data-single-url');
+
+        if (imageUrl && singleUrl) {
+            lightboxImage.src = imageUrl;
+            viewDetailsButton.href = singleUrl;
+            viewDetailsButton.target = '_blank';
+
+            lightbox.classList.remove('hidden');
+        } else {
+            console.warn("Missing data attributes for photo item:", clickedItem);
+        }
+    }
+
+    // Navigate to the previous photo
+    function showPreviousPhoto() {
+        if (currentPhotoIndex > 0) {
+            openLightbox(currentPhotoIndex - 1);
+        }
+    }
+
+    // Navigate to the next photo
+    function showNextPhoto() {
+        if (currentPhotoIndex < photoItems.length - 1) {
+            openLightbox(currentPhotoIndex + 1);
+        }
+    }
+
+    // Close the lightbox
+    function closeLightbox() {
+        lightbox.classList.add('hidden');
+        currentPhotoIndex = -1; // Reset the index
+    }
+
+    // Attach event listeners
+    galleryContainer.addEventListener('click', function (event) {
+        const clickedItem = event.target.closest('.photo-item');
+        if (clickedItem) {
+            const index = photoItems.indexOf(clickedItem);
+            if (index !== -1) {
+                openLightbox(index);
+            }
+        }
+    });
+
+    lightbox.addEventListener('click', function (event) {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    prevPhotoButton.addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevent event bubbling to lightbox click
+        showPreviousPhoto();
+    });
+
+    nextPhotoButton.addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevent event bubbling to lightbox click
+        showNextPhoto();
+    });
+
+    // Reinitialize gallery when DOM is ready or new items are added dynamically
+    initializeGallery();
+});
+
+  
+
 
 
 

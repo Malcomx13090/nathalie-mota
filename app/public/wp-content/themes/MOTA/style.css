@@ -460,7 +460,7 @@ color: black ;
 #load-more-photos {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #0073aa;
+   
     color: #fff;
     border: none;
     cursor: pointer;
@@ -494,8 +494,15 @@ color: black ;
     line-height: 23.7px;
     text-align: center;
     text-decoration: none !important;
-    color: black !important;
+    color: rgb(0, 0, 0) !important;
 }
+
+/* Targeting the specific li inside a ul */
+.menu-principal li a:hover {
+    font-weight: bold;
+}
+
+
 
 /* Responsive: Stack menu items in a column on mobile */
 @media (max-width: 768px) {
@@ -537,6 +544,20 @@ color: black ;
     width: 272px;
     height: 50px;
 }
+#load-more-photos:hover {
+    font-family: 'Space Mono-Regular';
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 23.7px;
+    text-align: center;
+    text-decoration: none !important;
+    color: #D8D8D8 !important;
+    background-color: black ;
+    width: 272px;
+    height: 50px;
+}
+
+
 
 /* Modal Overlay */
 
@@ -835,9 +856,9 @@ border: 1px 1px 1px 1px;
 /* Lightbox image styling */
 .lightbox-image {
     max-width: 100%;
-        max-height: 100%;
+        max-height: 80%;
         width: auto;
-        max-height: 530px;
+       
         margin-top: 40px; /* Ensure the image is contained within the bounds (aspect ratio maintained) */
    
 }
@@ -874,7 +895,7 @@ border: 1px 1px 1px 1px;
 
     .lightbox-image {
         max-width: 100%; /* Let the image be slightly larger on desktop */
-        max-height: 100%; /* Keep the height limit for large images */
+        max-height: 80%; /* Keep the height limit for large images */
     }
 }
 
@@ -886,9 +907,9 @@ border: 1px 1px 1px 1px;
 
     .lightbox-image {
         max-width: 100%;
-        max-height: 100%;
+        max-height: 700px;
         width: auto;
-        max-height: 530px;
+        
         margin-top: 40px;/* A bit smaller height limit for larger screens */
     }
 }
@@ -1047,7 +1068,15 @@ border: 1px 1px 1px 1px;
     flex-direction: row;
 }
 
-
+@media (max-width: 768px) {
+    .underpic{
+        flex-direction: column;
+    }
+    .contact-button² {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
 
 
 
@@ -1265,6 +1294,11 @@ border: 1px 1px 1px 1px;
         flex-direction: row-reverse;
       }
 
+      .dropdown-arrow3 ::after {
+        display: flex !important;
+        flex-direction: row-reverse;
+      }
+
 
     .photo-item img {
         width: 100%;
@@ -1317,7 +1351,8 @@ border: 1px 1px 1px 1px;
     .logo-icon {
         font-size: 24px;
         color: white;
-        margin-top: 225px;
+        margin-top: 2px;
+        cursor: pointer;
     }
     
     /* Text zones */
@@ -1367,5 +1402,114 @@ border: 1px 1px 1px 1px;
         border-radius: 3px;
         cursor: pointer;
         display: none; /* Hide the button for now */
+    }
+
+
+
+    .fa-expand {
+        color: white;
+    font-size: xx-large;
+    display: flex;
+    cursor: pointer;
+    margin-left: 505px;
+    margin-top: 10px;
+    }
+
+
+
+    .lightbox-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        color: #fff;
+        border: none;
+        font-size: 16px;
+        font-family: 'Arial', sans-serif;
+        cursor: pointer;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        transition: color 0.2s, transform 0.2s;
+    }
+    
+    
+    
+    .left-arrow {
+        left: 20px;
+        justify-content: flex-start;
+        font-size: 40px;
+        font-family: 'Space Mono-Regular';
+        color: #000000;
+        text-decoration: none !important;
+        font-weight: 100;
+    }
+    
+
+
+    .left-arrow:hover {
+        
+        font-weight: 900;
+    }
+
+
+    .right-arrow:hover {
+        font-weight: 900;
+    }
+
+    .right-arrow {
+        right: 20px;
+        justify-content: flex-end;
+        font-size: 40px;
+        font-family: 'Space Mono-Regular';
+        color: #000000;
+        text-decoration: none !important;
+        font-weight: 100;
+    }
+    
+    .lightbox-arrow span {
+        display: flex;
+        align-items: center;
+    }
+    
+    .left-arrow span::before,
+    .right-arrow span::after {
+        display: inline-block;
+        margin: 0 5px;
+    }
+    
+    .left-arrow span::before {
+        content: '\2190'; /* Left arrow Unicode */
+    }
+    
+    .right-arrow span::after {
+        content: '\2192'; /* Right arrow Unicode */
+    }
+    
+    .lightbox-texts9 {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding: 0 20px;
+        width: 100%;
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        font-size: 16px;
+    }
+    
+    .text-left9 {
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .text-right9 {
+        text-align: right;
+        font-style: italic;
+        font-size: 14px;
     }
     
