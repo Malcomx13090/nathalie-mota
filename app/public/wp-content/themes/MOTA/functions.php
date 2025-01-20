@@ -117,11 +117,11 @@ function load_more_photos() {
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
             
-            $image_full_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-            $single_url = get_permalink(get_the_ID());
-            // Retrieve categories and references
-            $categories = strip_tags(get_the_term_list(get_the_ID(), 'categorie', '', ', '));
-            $reference = get_field('reference');
+        $image_full_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+        $single_url = get_permalink(get_the_ID());
+        // Retrieve categories and references
+        $categories = strip_tags(get_the_term_list(get_the_ID(), 'categorie', '', ', '));
+        $reference = get_field('reference');
             
             ?>
             <div class="photo-item" 
@@ -131,8 +131,15 @@ function load_more_photos() {
                  data-reference="<?php echo esc_html($reference); ?>"
                  id="photo<?php echo get_the_ID(); ?>">
 
-                <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
-            </div>
+                <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img','class=overlay',)); ?>
+                <div class="overlay">
+                <i class="fa-solid fa-expand"></i>  <!-- Expand button -->
+                <i class="logo-icon fa fa-eye"></i>
+                <div class="text-left"><?php the_title(); ?></div>
+             <div class="text-right"><?php echo get_the_term_list(get_the_ID(), 'categorie', '', ', '); ?></div>
+    
+           </div>
+        </div>
             <?php
         endwhile;
         wp_reset_postdata();

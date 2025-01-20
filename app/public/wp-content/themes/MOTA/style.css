@@ -1563,3 +1563,40 @@ border: 1px 1px 1px 1px;
     .ligthbox10 {
         display: flex;
     }
+
+
+
+    @media screen and (max-width: 768px) { /* Adjust max-width as needed for your smartphone breakpoint */
+        .lightbox, 
+        .lightbox-overlay, 
+        .lightbox.hidden, 
+        .lightbox-content, 
+        .lightbox.show, 
+        .lightbox-image, 
+        .lightbox-arrow, 
+        .lightbox-arrow span, 
+        .lightbox-texts9 {
+            display: none !important; /* Hide all lightbox elements */
+            pointer-events: none; /* Disable clicking or interactions */
+        }
+    }
+    
+
+
+    @media screen and (max-width: 768px) { /* Adjust max-width as needed for your breakpoint */
+        
+        
+        .text-left,
+        .text-right,
+        .top-right-button,
+        .fa-expand {
+            display: none !important; /* Hide all overlay-related elements */
+             /* Disable clicking or interaction */
+        }
+
+
+
+        .logo-icon {
+            margin-top: 125px;
+        }
+    }

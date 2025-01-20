@@ -93,6 +93,7 @@ echo '<div id="hero-header">
             'post_status'    => 'publish',
             
         );
+        
         $query = new WP_Query($args);
 
         if ($query->have_posts()) :
@@ -124,6 +125,8 @@ echo '<div id="hero-header">
             echo '<p>Aucune photo trouvée.</p>';
         endif;
         ?>
+    </div>
+
     </div>
 
     <!-- Bouton Charger Plus -->
