@@ -107,7 +107,7 @@ echo '<div id="hero-header">
      data-reference="<?php echo esc_html(get_field('reference')); ?>" 
      id="photo<?php echo get_the_ID(); ?>">
 
-        <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
+        <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img','class=overlay',)); ?>
         <div class="overlay">
             <i class="fa-solid fa-expand"></i>  <!-- Expand button -->
             <i class="logo-icon fa fa-eye"></i>

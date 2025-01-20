@@ -118,25 +118,31 @@ function load_more_photos() {
         while ($query->have_posts()) : $query->the_post();
             
             $image_full_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-        $single_url = get_permalink(get_the_ID());
-        ?>
-                
-                 <div class="photo-item" data-image-url="<?php echo esc_url($image_full_url); ?>" 
-                 data-single-url="<?php echo esc_url($single_url); ?>" id="photo<?php echo get_the_ID();?>">
-                 
-                
+            $single_url = get_permalink(get_the_ID());
+            // Retrieve categories and references
+            $categories = strip_tags(get_the_term_list(get_the_ID(), 'categorie', '', ', '));
+            $reference = get_field('reference');
+            
+            ?>
+            <div class="photo-item" 
+                 data-image-url="<?php echo esc_url($image_full_url); ?>" 
+                 data-single-url="<?php echo esc_url($single_url); ?>"
+                 data-categories="<?php echo esc_html($categories); ?>" 
+                 data-reference="<?php echo esc_html($reference); ?>"
+                 id="photo<?php echo get_the_ID(); ?>">
+
                 <?php the_post_thumbnail('custom-size', array('class' => 'responsive-img')); ?>
-                </a>
             </div>
-                <?php
+            <?php
         endwhile;
         wp_reset_postdata();
-   
+    else :
         echo ''; // Return an empty string if no posts are found
     endif;
 
     wp_die(); // End the AJAX response
 }
+
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
 
